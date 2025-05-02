@@ -1,11 +1,15 @@
 import React from 'react'
-import ThemeToggle from '../components/ThemeToggle'
+import ThemeToggle from '../components/ThemeToggle';
+import StarBackground from '../components/StarBackground';
 
 const Home = () => {
   return (
-    <section className="min-h-screen bg-background text-foreground overflow-x-hidden ">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden ">
+      {/* Theme toggle */}
        <ThemeToggle />
-    </section>
+      {/* star background */}
+      <StarBackground />
+    </div>
   )
 }
 
