@@ -70,7 +70,7 @@ const Navbar = () => {
 
         {/* hamburger menu */}
         <button onClick={() => setIsMenuOpen((prev) => (!prev))}
-          className="block md:hidden p-2 text-foreground z-50 "  
+          className="block md:hidden p-2 text-foreground z-50 cursor-pointer"  
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
             {
