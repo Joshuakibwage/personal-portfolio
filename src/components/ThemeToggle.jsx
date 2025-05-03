@@ -31,7 +31,7 @@ const ThemeToggle = () => {
     }
 
     return (
-        <button onClick={themeToggle} className={cn("fixed max-sm:hidden top-5 right-5 p-2 rounded-full z-50 transition-colors delay-300 focus:outline-hidden cursor-pointer")}
+        <button onClick={themeToggle} className={cn("fixed max-sm:hidden top-4 right-5 p-2 rounded-full z-50 transition-colors delay-300 focus:outline-hidden cursor-pointer")}
         >
             {
                 isDarkMode ? (
