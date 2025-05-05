@@ -38,7 +38,7 @@ const myProjects = [
         description: "A modern furniture website showcasing stylish, functional pieces designed to elevate your living space with comfort and elegance.",
         image: cozyLiving,
         links: {
-            live: "https://digital-agency-ochre.vercel.app/",
+            live: "https://cozy-living-omega.vercel.app/",
             github: "https://github.com/Joshuakibwage/boot-strap-project/",
         } ,
         tags: ["HTML", "Bootstrap", "CSS"],

@@ -4,14 +4,14 @@ import StarBackground from '../components/StarBackground';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import AboutMe from '../components/AboutMe';
-// import Skills from '../components/Skills';
+import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 
 
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden ">
+    <div id="#hero" className="min-h-screen bg-background text-foreground overflow-x-hidden ">
       {/* Theme toggle */}
        <ThemeToggle />
       {/* star background */}
@@ -22,7 +22,7 @@ const Home = () => {
       <main>
         <Hero />
         <AboutMe />
-        {/* <Skills /> */}
+        <Skills />
         <Projects />
       </main>
 

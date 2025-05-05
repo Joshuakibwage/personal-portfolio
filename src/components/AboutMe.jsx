@@ -11,7 +11,7 @@ const AboutMe = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-                <h3 className="font-semibold text-2xl">
+                <h3 className="font-semibold text-2xl text-primary">
                      Digital craftsman bringing ideas to life in the browser
                 </h3>
 
