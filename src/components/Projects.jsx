@@ -3,7 +3,7 @@ import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 import React from 'react'
 import auth from '../assets/images/auth.png'
 import cookBook from '../assets/images/cook-book.png'
-import highIntensity from '../assets/images/high-intensity.png'
+import portfolio from '../assets/images/portfolio.png'
 import cozyLiving from '../assets/images/cozy-living.png'
 import digitalAgency from '../assets/images/digital-agency.png'
 import codeTutor from '../assets/images/code-tutor.png'
@@ -16,7 +16,7 @@ const myProjects = [
         description: "A responsive and secure authentication page with login and signup functionality, featuring form validation and user-friendly UI.",
         image: auth,
         links: {
-            live: "https://vercel.com/joshua-kibwages-projects/authentication-ui",
+            live: "https://authentication-ui-beta.vercel.app/",
             github: "https://github.com/Joshuakibwage/authentication-ui",
         },
         tags: ["React", "Tailwind"],
@@ -45,12 +45,12 @@ const myProjects = [
     },
     {
         id: 3,
-        name: "High Intensity",
-        description: "Gym website designed to motivate and empower users with dynamic workouts, expert training programs, and a community-driven fitness experience.",
-        image: highIntensity,
+        name: "Previous portfolio",
+        description: "A personal portfolio showcasing my early front-end journey — featuring responsive layouts, clean UI design, and projects built with HTML, CSS, JavaScript, and React.",
+        image: portfolio,
         links: {
-            live: "https://high-intensity-workout.vercel.app/",
-            github: "https://github.com/Joshuakibwage/high-intensity-workout/",
+            live: "https://joshuakibwage.vercel.app/",
+            github: "https://github.com/Joshuakibwage/official-portfolio/",
         } ,
         tags: ["React", "Tailwind"],
     },
@@ -101,11 +101,13 @@ const Projects = () => {
                         className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
                     >
                         <div className="h-48 overflow-hidden">
-                            <img 
-                                src={project.image}
-                                alt={project.title} 
-                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
+                           <a href={project.links.live} target="_blank">
+                                <img 
+                                    src={project.image}
+                                    alt={project.title} 
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                />
+                           </a>
                         </div>
 
 
