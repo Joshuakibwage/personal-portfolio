@@ -1,7 +1,23 @@
 import React from 'react'
 import { Code, User, Briefcase } from 'lucide-react';
+  import ReactGA from "react-ga4";
 
 const AboutMe = () => {
+
+
+
+    ReactGA.initialize("G-XXXXXXX");
+
+    const handleDownload = () => {
+    ReactGA.event({
+        category: "engagement",
+        action: "download_cv",
+        label: "Download CV Button",
+    });
+    };
+
+
+
   return (
     <section id="about" className="py-24 px-4 mx-auto relative">
       <div className="container mx-auto max-w-5xl ">
@@ -28,7 +44,12 @@ const AboutMe = () => {
                         Get In Touch
                     </a>
 
-                    <a href="" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300">
+                    <a 
+                        href="/resume.pdf" 
+                        onClick={handleDownload``}
+                        download 
+                        className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+                    >
                         Download CV
                     </a>
                 </div>
