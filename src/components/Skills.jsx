@@ -16,7 +16,6 @@ import vsCode from '../assets/icons/vscode.svg'
 import gitHub from '../assets/icons/GitHub_light.svg'
 import git from '../assets/icons/git.svg'
 
-
 const mySkills = [
 {
   name: "CSS",
@@ -112,7 +111,7 @@ const Skills = () => {
       
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            My <span className="text-primary">Skills</span>
+            Tech <span className="text-primary">Stack</span>
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">

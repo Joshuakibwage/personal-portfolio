@@ -1,34 +1,43 @@
+
 import {
-  Instagram,
+  Github,
   Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
-  Twitch,
-  Twitter,
 } from "lucide-react";
 import { cn } from "../lib/utils";
-import { useToast } from "../hooks/use-toast";
-import { useState } from "react";
+import { useState } from 'react';
+import emailjs from "emailjs-com" 
+
+
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    name: "",
+    message: "",
+
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setIsSubmitting(true);
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_SERVICE_ID, 
+        import.meta.env.VITE_TEMPLATE_ID, 
+        e.target, 
+        import.meta.env.VITE_PUBLIC_KEY)
+      .then((result) => {
+        alert("Message Sent!");
+        setFormData({name: "", email: "", message: ""})
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setIsSubmitting(false);
-    }, 1500);
-  };
+      }).catch(() => alert("Oops! Something went wrong. Please try again."))
+  }
+
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -92,29 +101,25 @@ const Contact = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
+                <a href="https://www.linkedin.com/in/joshua-kibwage-b19556321/" target="_blank">
                   <Linkedin />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitter />
+               
+                <a href="https://github.com/Joshuakibwage" target="_blank">
+                  <Github />
                 </a>
-                <a href="#" target="_blank">
-                  <Instagram />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitch />
-                </a>
+             
               </div>
             </div>
           </div>
 
           <div
             className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
+            
           >
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -126,9 +131,11 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
                   placeholder="john doe..."
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
                 />
               </div>
 
@@ -143,9 +150,11 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="johndoe@gmail.com"
+                  placeholder="example@gmail.com"
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
                 />
               </div>
 
@@ -159,20 +168,21 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello, I'd like to talk about..."
+                  placeholder="Your message..."
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
                 className={cn(
                   "cosmic-button w-full flex items-center justify-center gap-2"
                 )}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                Send Message
                 <Send size={16} />
               </button>
             </form>
